@@ -12,10 +12,18 @@ class Program
     {
         // Ввод исходного массива с клавиатуры
         Console.WriteLine("Введите элементы массива, разделяя их пробелом:");
-        string  stroka = Console.ReadLine()!;
-        string[] array = stroka.Split(' ');
+        string input = Console.ReadLine()!;
+        string[] array = input.Split(' ');
 
-        
+        // Формирование нового массива из строк, длина которых <= 3 символа
+        string[] newArray = FilterArray(array);
+
+        // Вывод нового массива
+        Console.WriteLine("Новый массив:");
+        foreach (string element in newArray)
+        {
+            Console.WriteLine(element);
+        }
     }
 
     static string[] FilterArray(string[] array)
@@ -30,7 +38,7 @@ class Program
             }
         }
 
-        // Создание нового массива с подходящими строкам
+        // Создание нового массива с подходящими строками
         string[] newArray = new string[count];
         int index = 0;
         foreach (string element in array)
